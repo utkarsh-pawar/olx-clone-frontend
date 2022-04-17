@@ -2,7 +2,7 @@
   max-width: 1440px;
   width: auto;
   margin: 1rem auto;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   border: 1px solid lightgray;
@@ -16,14 +16,15 @@
   margin: 2rem 4rem;
 }
 .add > form label {
-  margin: 2rem 0rem !important;
+  margin: 2rem 0.25rem !important;
 }
 
 .add > form > input,
 textarea {
   /* flex-basis: 10%; */
-  margin: 0.25rem 0rem 1rem 0rem;
+  margin: 0.25rem 0.25rem 1rem 0.25rem;
   max-width: 40rem;
+  width: auto;
   padding: 0.5rem;
   font-size: 16px;
   font-weight: 500;
@@ -43,6 +44,7 @@ textarea:focus {
 
 .add > form > button {
   max-width: 40rem;
+  margin: 0rem 0.5rem;
 }
 
 .add-input__image {
@@ -55,4 +57,5 @@ textarea:focus {
   .add {
     margin: 1rem;
   }
+  
 }

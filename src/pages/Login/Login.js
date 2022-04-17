@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { userActions } from "../../store/userSlice";
+import links from "../../links/link";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Login = () => {
   const loginHandler = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post("http://localhost:5000/user/login", {
+      const response = await axios.post(links.login, {
         email,
         password,
         number,
@@ -45,21 +46,18 @@ const Login = () => {
     try {
       e.preventDefault();
 
-      const response = await axios.post("http://localhost:5000/user/signup", {
+      const response = await axios.post(links.signup, {
         email,
         password,
         name,
         contactNO: number,
       });
 
-      const loginResponse = await axios.post(
-        "http://localhost:5000/user/login",
-        {
-          email,
-          password,
-          number,
-        }
-      );
+      const loginResponse = await axios.post(links.login, {
+        email,
+        password,
+        number,
+      });
       localStorage.setItem("token", loginResponse.data.token);
       dispatch(userActions.loggedIn());
     } catch (e) {

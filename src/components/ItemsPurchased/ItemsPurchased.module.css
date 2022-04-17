@@ -1,3 +1,32 @@
-.purchased{
-    flex:1
+.items {
+  max-width: 1440px;
+  margin: auto;
+  /* border: 1px solid lightgray; */
+  /* box-shadow: var(--shadow-md); */
+  border-radius: 0.25rem;
+  box-shadow: var(--shadow-md);
+  padding: 3rem 0rem;
+
+  grid-gap: 0.75rem;
+  max-width: 1280px;
+  margin: auto;
+  margin-top: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  /* flex-wrap: wrap; */
+
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.items > div {
+  display: flex;
+  grid-gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* flex-direction: column; */
 }

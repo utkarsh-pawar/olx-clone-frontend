@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import BuyItem from "../BuyItem/BuyItem";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Styles from "./Product.module.css";
@@ -41,8 +40,10 @@ const Product = ({ name, description, price, productID, status, images }) => {
             </div>
           </div>
           <p>{description}</p>
+          {status=== "unsold" &&
 
           <button onClick={buyHandler}>Buy This!</button>
+          }
         </div>
       </div>
     </div>

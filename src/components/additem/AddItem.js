@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Styles from "./AddItem.module.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { loaderActions } from "../../store/loaderSlice";
+import links from "../../links/link";
 
 const AddItem = () => {
   const [name, setName] = useState("");
@@ -14,7 +17,13 @@ const AddItem = () => {
   const addItemHandler = async (event) => {
     try {
       event.preventDefault();
-      dispatch(loaderActions.startLoading())
+      dispatch(loaderActions.startLoading());
+      console.log(images);
+
+      if (!name || !description || !price || images.length === 0) {
+        dispatch(loaderActions.stopLoading());
+        return toast.info("enter all required fields");
+      }
 
       const bodyFormData = new FormData();
       bodyFormData.append("name", name);
@@ -26,14 +35,11 @@ const AddItem = () => {
       }
 
       const authHeader = `Bearer ${localStorage.getItem("token")}`;
-      const sell = await axios.post(
-        "http://localhost:5000/item/additem",
-        bodyFormData,
-        { headers: { auth: authHeader, "content-type": "multipart/form-data" } }
-      );
-
+      const sell = await axios.post(links.addItem, bodyFormData, {
+        headers: { auth: authHeader, "content-type": "multipart/form-data" },
+      });
+      dispatch(loaderActions.stopLoading());
       console.log(sell);
-      dispatch(loaderActions.stopLoading())
     } catch (e) {
       if (e.response) {
         console.log(e.response.data);
@@ -48,6 +54,14 @@ const AddItem = () => {
   return (
     <div className={Styles.add}>
       <form encType="multipart/form" method="POST" onSubmit={addItemHandler}>
+        <ToastContainer
+          toastClassName={Styles.toast}
+          theme="colored"
+          toastStyle={{ backgroundColor: "lightblue" }}
+          pauseOnHover={false}
+          hideProgressBar={true}
+          autoClose={2000}
+        />
         <h4>
           <label htmlFor="name">Name of Item:</label>
         </h4>

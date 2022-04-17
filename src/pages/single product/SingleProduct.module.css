@@ -1,11 +1,13 @@
 .single {
-  position: relative;
+  /* position: relative; */
 }
 
 .backdrop {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.374);
+  top: 0;
+  left: 0;
   z-index: 0;
 }
 .single-container {
@@ -78,3 +80,36 @@
   background-color: #0048d6 !important;
   border: none !important;
 }
+
+@media screen and (max-width:768px) {
+  .single-card{
+    margin: 0.5rem;
+  }
+  .single-card > div > div > img {
+    width: 200px;
+  }
+  .single-card > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5rem;
+    /* height: 100%; */
+  }
+  .single-card button{
+    float: right;
+    margin: 0 2.5rem 1rem 0rem;
+  } 
+}
+
+@media screen and (max-width:400px){
+  .single-card > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    /* height: 100%; */
+  }
+  .single-card button{
+    float: right;
+    margin: 0 0.5rem 0rem 0rem;
+  } 
+}
+

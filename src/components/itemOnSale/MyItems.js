@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Styles from "./MyItems.module.css";
 import { useSelector } from "react-redux";
 import Product from "../product/Product";
+import links from "../../links/link";
 
 const MyItems = () => {
   const isLoading = useSelector((state) => state.loader.isLoading);
@@ -12,11 +13,9 @@ const MyItems = () => {
       try {
         const authHeader = `Bearer ${localStorage.getItem("token")}`;
         console.log(authHeader);
-        const itemsList = await axios.post(
-          "http://localhost:5000/item/myitems",
-          "",
-          { headers: { auth: authHeader } }
-        );
+        const itemsList = await axios.post(links.myItems, null, {
+          headers: { auth: authHeader },
+        });
 
         setMyProducts(itemsList.data.data);
       } catch (e) {
@@ -34,7 +33,8 @@ const MyItems = () => {
   console.log(myProducts);
   return (
     <div className={Styles.items}>
-      {myProducts &&
+      <h3>Items Listed:</h3>
+      {myProducts.length > 0 ?
         myProducts.map((product) => (
           <Product
             key={product._id}
@@ -45,7 +45,7 @@ const MyItems = () => {
             description={product.description}
             images={product.images}
           />
-        ))}
+        )):<h4>No items Listed to sell.</h4>}
     </div>
   );
 };

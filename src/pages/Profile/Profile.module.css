@@ -1,7 +1,16 @@
 .profile > div{
     display: flex;
-    max-width: 1440px;
-    margin: auto;
+    /* position: relative; */
+    /* max-width: 1440px; */
+    /* margin: auto; */
 
+}
+
+.profile-footer{
+    position: relative;
+}
+
+.list{
+    display: block !important;
 }
 

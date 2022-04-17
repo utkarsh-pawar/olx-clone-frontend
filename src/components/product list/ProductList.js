@@ -4,8 +4,8 @@ import Product from "../product/Product";
 import Styles from "./ProductList.module.css";
 import { FaAngleDown } from "react-icons/fa";
 import links from "../../links/link";
-import Loading from "../loading/Loading";
 import { useDispatch, useSelector } from "react-redux";
+import "../../App.css"
 import { loaderActions } from "../../store/loaderSlice";
 
 const ProductList = () => {
@@ -26,9 +26,7 @@ const ProductList = () => {
     const getAllItems = async () => {
       try {
         dispatch(loaderActions.startLoading());
-        const items = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/item/getallitems`
-        );
+        const items = await axios.get(links.getAllItems);
         dispatch(loaderActions.stopLoading());
         setProducts(items.data.data);
         console.log(items);
@@ -48,7 +46,7 @@ const ProductList = () => {
 
   return (
     <div className={Styles.products}>
-      {isLoading && <Loading />}
+       {isLoading && <div className="loading">Loading...</div>}
 
       {products && products.length > 0
         ? products
