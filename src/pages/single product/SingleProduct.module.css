@@ -1,0 +1,80 @@
+.single {
+  position: relative;
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.374);
+  z-index: 0;
+}
+.single-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.single-card {
+  height: 20rem;
+  background-color: white;
+  width: 35rem;
+  border-radius: 0.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.single-card > div {
+  display: flex;
+  /* height: 100%; */
+}
+
+.single-card > div > div {
+  flex: 1;
+  height: 100%;
+}
+.single-card > div > div > img {
+  width: 300px;
+  margin: 1rem;
+}
+.single-card > div > div > p {
+  margin: 0.5rem 0rem 1.25rem 0rem;
+}
+
+.single-card > div > div > span {
+  background-color: cadetblue;
+  color: white;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  margin: 0.5rem 0rem;
+}
+
+.single-card button {
+  all: unset;
+  float: right;
+  display: block;
+  margin: 5rem 0rem 0rem 0rem;
+  border: 1px solid gray;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  margin-right: 2.25rem;
+  font-size: 1.15rem !important;
+}
+
+.buy {
+  padding: 0.25rem 0.75rem !important;
+  background-color: #0057ff !important;
+  color: white !important;
+  border: none !important;
+  cursor: pointer !important;
+  
+}
+
+.buy:hover {
+  background-color: #0048d6 !important;
+  border: none !important;
+}

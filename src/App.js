@@ -7,6 +7,8 @@ import Profile from "./pages/Profile/Profile";
 import { useEffect } from "react";
 import checkIsUser from "./constants/tokenCheck";
 
+import SingleProduct from "./pages/single product/SingleProduct";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -19,6 +21,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
+
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>

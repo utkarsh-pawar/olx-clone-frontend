@@ -4,7 +4,6 @@ import logo from "../../assets/olx-logo.webp";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../../store/userSlice";
-import checkIsUser from "../../constants/tokenCheck";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setPathname(location.pathname);
-  }, [ location.pathname, pathname]);
+  }, [location.pathname, pathname]);
   if (isUser) {
     return (
       <div className={Styles.navbar}>

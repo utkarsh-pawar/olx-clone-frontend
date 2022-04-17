@@ -1,0 +1,7 @@
+.profile > div{
+    display: flex;
+    max-width: 1440px;
+    margin: auto;
+
+}
+

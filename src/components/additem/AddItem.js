@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import Styles from "./AddItem.module.css";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loaderActions } from "../../store/loaderSlice";
 
 const AddItem = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [images, setImages] = useState([]);
   const [price, setPrice] = useState(0);
+  const dispatch = useDispatch();
+
   const addItemHandler = async (event) => {
     try {
       event.preventDefault();
+      dispatch(loaderActions.startLoading())
 
       const bodyFormData = new FormData();
       bodyFormData.append("name", name);
@@ -28,6 +33,7 @@ const AddItem = () => {
       );
 
       console.log(sell);
+      dispatch(loaderActions.stopLoading())
     } catch (e) {
       if (e.response) {
         console.log(e.response.data);
@@ -41,35 +47,55 @@ const AddItem = () => {
 
   return (
     <div className={Styles.add}>
-      <form onSubmit={addItemHandler}>
-        <label htmlFor="name">Name of Item:</label>
+      <form encType="multipart/form" method="POST" onSubmit={addItemHandler}>
+        <h4>
+          <label htmlFor="name">Name of Item:</label>
+        </h4>
         <input
           type="text"
+          autoComplete="off"
           id="name"
           onChange={(e) => {
             setName(e.target.value);
           }}
+          placeholder="Name of the product"
         />
-        <label htmlFor="desc">Description:</label>
-        <input
-          type="text"
+        <h4>
+          <label htmlFor="desc">Description:</label>
+        </h4>
+        <textarea
+          type="text-are"
+          autoComplete="off"
           id="desc"
+          rows={5}
+          placeholder="Description of the product"
           onChange={(e) => {
             setDescription(e.target.value);
           }}
         />
-        <label htmlFor="price">Price: (in dollars)</label>
+
+        <h4>
+          <label htmlFor="price">Price: (in dollars)</label>
+        </h4>
         <input
           type="number"
           id="price"
+          placeholder="Ask Price of the product"
+          autoComplete="off"
           onChange={(e) => {
             setPrice(e.target.value);
           }}
         />
-        <label htmlFor="images">images of the item:</label>
+        <h4>
+          <label htmlFor="images">images of the item:</label>
+        </h4>
+
         <input
           type="file"
+          placeholder="select images of the product"
+          autoComplete="off"
           id="images"
+          className={Styles["add-input__image"]}
           onChange={(e) => {
             setImages(e.target.files);
           }}
