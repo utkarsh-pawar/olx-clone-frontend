@@ -43,14 +43,30 @@ textarea:focus {
 }
 
 .add > form > button {
-  max-width: 40rem;
+  /* max-width: 10rem !import ant; */
   margin: 0rem 0.5rem;
+  align-self:flex-end;
+  padding: 0.75rem 1rem;
+border: none;
+border-radius: 9999px;
+  background-color: #0057ff;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 1rem;
+cursor: pointer;
+  
+
+}
+
+.add > form > button:hover{
+  background-color: #0048d6;
 }
 
 .add-input__image {
   all: unset !important;
   margin: 1rem 0rem !important;
   background-color: #fff;
+  
 }
 
 @media screen and (max-width: 1440px) {
