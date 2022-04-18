@@ -14,7 +14,7 @@ In the project directory, you can run in root of the folder(after getting a clon
 
 You can view the live demo of the application [here.](https://olx-clone-frontend.vercel.app/) 
 
-tech stack - 
+## Tech stack - 
 1. ReactJS
 2. react-redux and reduxJS/toolkit for state management
 3. axios - for handling http requests to backend
