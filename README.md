@@ -10,7 +10,7 @@ In the project directory, you can run in root of the folder(after getting a clon
 1. ### `npm install` 
  - to install all the dependencies
 2. ### `npm start`
- - Run the app in development mode
+ - Run the app in development mode (runs locally on localhost:3000)
 
 You can view the live demo of the application [here.](https://olx-clone-frontend.vercel.app/) 
 
