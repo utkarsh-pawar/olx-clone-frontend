@@ -1,3 +1,4 @@
 .home{
     position: relative;
+    min-height:  85vh !important;
 }

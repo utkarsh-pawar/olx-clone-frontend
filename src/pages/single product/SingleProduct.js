@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import links from "../../links/link";
 import Styles from "./SingleProduct.module.css";
 
@@ -26,7 +28,7 @@ const SingleProduct = () => {
       }
     } catch (e) {
       if (e.response) {
-        console.log(e.response.data);
+        toast.info(e.response.data);
       } else if (e.request) {
         console.log(e.request);
       } else {
@@ -43,7 +45,7 @@ const SingleProduct = () => {
         setItem(product.data.data);
       } catch (e) {
         if (e.response) {
-          console.log(e.response.data);
+          toast(e.response.data);
         } else if (e.request) {
           console.log(e.request);
         } else {
@@ -56,6 +58,15 @@ const SingleProduct = () => {
   console.log(item);
   return (
     <div className={Styles.single}>
+      {" "}
+      <ToastContainer
+        toastClassName={Styles.toast}
+        theme="colored"
+        toastStyle={{ backgroundColor: "crimson" }}
+        pauseOnHover={false}
+        hideProgressBar={true}
+        autoClose={2000}
+      />
       <div className={Styles["backdrop"]} onClick={backdropHandler}></div>
       <div className={Styles["single-container"]}>
         <div className={Styles["single-card"]}>

@@ -62,7 +62,7 @@ const Login = () => {
       dispatch(userActions.loggedIn());
     } catch (e) {
       if (e.response) {
-        toast(e.response.data);
+        toast.info(e.response.data);
       } else if (e.request) {
         console.log(e.request);
       } else {
@@ -90,7 +90,7 @@ const Login = () => {
       <ToastContainer
         toastClassName={Styles.toast}
         theme="colored"
-        toastStyle={{ backgroundColor: "lightblue" }}
+        toastStyle={{ backgroundColor: "crimson" }}
         pauseOnHover={false}
         hideProgressBar={true}
         autoClose={2000}

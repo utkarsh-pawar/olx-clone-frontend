@@ -38,8 +38,9 @@ const AddItem = () => {
       const sell = await axios.post(links.addItem, bodyFormData, {
         headers: { auth: authHeader, "content-type": "multipart/form-data" },
       });
+      toast.info("your item is listed to be sold.");
       dispatch(loaderActions.stopLoading());
-      console.log(sell);
+      // console.log(sell);
     } catch (e) {
       if (e.response) {
         console.log(e.response.data);

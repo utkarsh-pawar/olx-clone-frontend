@@ -40,10 +40,9 @@ const Product = ({ name, description, price, productID, status, images }) => {
             </div>
           </div>
           <p>{description}</p>
-          {status=== "unsold" &&
-
-          <button onClick={buyHandler}>Buy This!</button>
-          }
+          {status === "unsold" && (
+            <button onClick={buyHandler}>Buy This!</button>
+          )}
         </div>
       </div>
     </div>

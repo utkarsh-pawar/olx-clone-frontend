@@ -35,20 +35,22 @@ const ItemsPurchased = () => {
     <div className={Styles.items}>
       <h3>Items purchased:</h3>
       <div>
-
-      {myProducts ?
-        myProducts.map((product) => (
-          <Product
-          key={product._id}
-          productID={product._id}
-          name={product.name}
-          price={product.price}
-          status={product.status}
-          description={product.description}
-          images={product.images}
-          />
-          )): <h4>No items purchased.</h4>}
-          </div>
+        {myProducts.length > 0 ? (
+          myProducts.map((product) => (
+            <Product
+              key={product._id}
+              productID={product._id}
+              name={product.name}
+              price={product.price}
+              status={product.status}
+              description={product.description}
+              images={product.images}
+            />
+          ))
+        ) : (
+          <h4>No items purchased.</h4>
+        )}
+      </div>
     </div>
   );
 };
