@@ -34,18 +34,21 @@ const MyItems = () => {
   return (
     <div className={Styles.items}>
       <h3>Items Listed:</h3>
+      <div>
+
       {myProducts.length > 0 ?
         myProducts.map((product) => (
           <Product
-            key={product._id}
-            productID={product._id}
-            name={product.name}
-            price={product.price}
-            status={product.status}
-            description={product.description}
-            images={product.images}
+          key={product._id}
+          productID={product._id}
+          name={product.name}
+          price={product.price}
+          status={product.status}
+          description={product.description}
+          images={product.images}
           />
-        )):<h4>No items Listed to sell.</h4>}
+          )):<h4>No items Listed to sell.</h4>}
+          </div>
     </div>
   );
 };
